@@ -5,14 +5,15 @@ import random
 analyzer = SentimentIntensityAnalyzer()
 
 def chat_page(request):
-    bot_response = ""
-    mood = ""
+    chat_history = []
 
     if request.method == "POST":
-        user_input = request.POST.get("user_input")
-        
-        if user_input:  # ✅ Only analyze if input is not empty
-            score = analyzer.polarity_scores(user_input)
+        user_message = request.POST.get("user_input")
+        bot_response = ""
+        mood = ""
+
+        if user_message:
+            score = analyzer.polarity_scores(user_message)
             compound = score['compound']
 
             if compound >= 0.05:
@@ -39,7 +40,18 @@ def chat_page(request):
 
             bot_response = random.choice(responses)
 
+            # Create the chat history for this one turn
+            chat_history = [
+                {"sender": "user", "message": user_message},
+                {"sender": "bot", "message": bot_response, "mood": mood}
+            ]
+
+    else:
+        # Default message when GET request is made (on first visit)
+        chat_history = [
+            {"sender": "bot", "message": "Hello! How are you feeling today?"}
+        ]
+
     return render(request, 'analyzer/chat.html', {
-        "bot_response": bot_response,
-        "mood": mood
+        "chat_history": chat_history
     })
