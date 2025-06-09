@@ -1,0 +1,105 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Mood Chatbot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .chat-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 100%;
+            max-width: 500px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .response {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            font-size: 1.1rem;
+        }
+
+        .positive {
+            background: #e0f8e9;
+            color: #2e7d32;
+        }
+
+        .negative {
+            background: #fdecea;
+            color: #c62828;
+        }
+
+        .neutral {
+            background: #e7ebf0;
+            color: #546e7a;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            margin-top: 1rem;
+            padding: 0.8rem 1.5rem;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .footer {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h1>Mood Chatbot</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <input type="text" name="user_input" placeholder="How are you feeling today?" required>
+            <button type="submit">Send</button>
+        </form>
+
+        {% if bot_response %}
+            <div class="response {{ mood }}">
+                <strong>Bot:</strong> {{ bot_response }}
+            </div>
+        {% endif %}
+    </div>
+
+    <div class="footer">
+        Powered by VADER Sentiment & Django
+    </div>
+</body>
+
+
+</html>
