@@ -1,4 +1,4 @@
-# mood-tracker# Mental Stress Detection Chatbot
+# Mental Stress Detection Chatbot
 
 This project is a Django-based web application that uses sentiment analysis (powered by `vaderSentiment`) to detect a user's emotional state and suggest supportive actions. It functions like a chatbot and is designed to help individuals monitor their mental well-being in a simple, accessible way.
 
@@ -71,7 +71,7 @@ Run the app:
 - Visit http://127.0.0.1:8000/ in your browser to start chatting!
   
 ## 📁 Project Structure
-
+```bash
 mood-tracker/
 │
 ├── analyzer/
@@ -86,7 +86,7 @@ mood-tracker/
 │   └── urls.py
 ├── manage.py
 └── requirements.txt
-
+```
 ## 🤝 Contributing
 
 We welcome contributions to improve this tool. Feel free to fork the repository, submit pull requests, or raise issues.
