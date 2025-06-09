@@ -1,5 +1,5 @@
 # Mental Stress Detection Chatbot
-
+<img src="" alt="screenshot">
 This project is a Django-based web application that uses sentiment analysis (powered by `vaderSentiment`) to detect a user's emotional state and suggest supportive actions. It functions like a chatbot and is designed to help individuals monitor their mental well-being in a simple, accessible way.
 
 ## 🌍 SDG Alignment
