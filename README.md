@@ -100,7 +100,4 @@ Charles Richa
 GitHub: charlesricha
 
 
----
-
-Let me know if you also want this formatted as a downloadable file, or if you'd like to add a section for screenshots or live demo links.
 
